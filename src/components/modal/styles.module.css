@@ -1,0 +1,27 @@
+.modal {
+  @apply fixed inset-0 z-10 overflow-y-auto;
+}
+
+.container {
+  @apply flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0 max-w-5xl mx-auto;
+}
+
+.content {
+  @apply relative transform overflow-hidden rounded-lg border border-black bg-white text-left shadow-xl transition-all w-11/12 sm:w-3/4 md:w-[53.5%] border border-black pt-14 pb-6 pl-10 pr-6 my-10;
+}
+
+.darkMode {
+  @apply bg-dark border border-incorrect text-white;
+}
+
+.header {
+  @apply text-center text-4xl font-bold pb-8;
+}
+
+.close {
+  @apply p-1;
+}
+
+.background {
+  @apply fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity;
+}

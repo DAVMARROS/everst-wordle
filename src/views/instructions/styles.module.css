@@ -1,0 +1,11 @@
+.content {
+  @apply flex flex-col gap-5 pt-4;
+}
+
+.footer {
+  @apply pt-8 flex flex-col gap-8 items-center;
+}
+
+.line {
+  @apply grid grid-cols-5 gap-3 pl-4 pr-8;
+}

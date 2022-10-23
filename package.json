@@ -10,9 +10,11 @@
     "@types/node": "^16.11.68",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "classnames": "^2.3.2",
+    "postcss-modules": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "typescript": "^4.8.4",
     "web-vitals": "^2.1.4"
   },
@@ -21,12 +23,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -39,5 +35,63 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "autoprefixer": "^10.4.12",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "postcss": "^8.4.18",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.2.1",
+    "typescript-plugin-css-modules": "^3.4.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "prettier",
+      "@typescript-eslint",
+      "eslint-plugin-import"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:import/recommended",
+      "plugin:import/typescript",
+      "plugin:@typescript-eslint/recommended",
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error",
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "internal"
+          ],
+          "newlines-between": "always"
+        }
+      ]
+    },
+    "ignorePatterns": [
+      "**/dist/**"
+    ],
+    "settings": {
+      "import/resolver": {
+        "typescript": {}
+      }
+    }
   }
 }

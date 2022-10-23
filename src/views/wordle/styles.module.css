@@ -1,0 +1,31 @@
+.container {
+  @apply max-w-5xl mx-auto;
+}
+
+.content {
+  @apply pt-5 md:pt-10 pb-10 md:pb-20 px-2 sm:px-[9%] md:px-[13%] lg:px-[18.8%];
+}
+
+.header {
+  @apply w-full bg-back rounded-2xl p-5 flex flex-row items-center justify-between;
+}
+
+.title {
+  @apply text-title text-4xl font-semibold;
+}
+
+.titleDark {
+  @apply text-darkTitle text-4xl font-semibold;
+}
+
+.words {
+  @apply pt-14 pb-10 flex flex-col gap-3 px-4 sm:px-[8%] md:px-[17.4%];
+}
+
+.line {
+  @apply grid grid-cols-5 gap-3;
+}
+
+.darkMode {
+  @apply bg-headerDark text-white;
+}

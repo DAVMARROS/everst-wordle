@@ -1,0 +1,15 @@
+.content {
+  @apply flex flex-col gap-14 pt-3 text-center;
+}
+
+.row {
+  @apply flex flex-row items-center justify-between pl-10 pr-16;
+}
+
+.number {
+  @apply text-4xl font-bold;
+}
+
+.footer {
+  @apply pt-8 flex flex-col gap-8 items-center;
+}

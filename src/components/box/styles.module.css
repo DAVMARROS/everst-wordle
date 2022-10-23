@@ -1,0 +1,47 @@
+.box {
+  @apply py-4 rounded text-4xl font-bold text-center bg-defaultKey text-white;
+}
+
+.darkMode {
+  @apply bg-boardDark text-white;
+}
+
+.correct {
+  @apply bg-correct;
+}
+
+.warning {
+  @apply bg-warning;
+}
+
+.incorrect {
+  @apply bg-incorrect;
+}
+
+.keyboard {
+  @apply py-3 bg-defaultKey text-base text-black;
+}
+
+.keyboardDarkMode {
+  @apply bg-defaultKeyDark text-white;
+}
+
+.correctKey {
+  @apply bg-correctKey;
+}
+
+.incorrectKey {
+  @apply bg-incorrectKey;
+}
+
+.empty {
+  @apply py-empty;
+}
+
+.instruction {
+  @apply bg-white border border-black text-black;
+}
+
+.instructionDark {
+  @apply bg-transparent border border-border;
+}
