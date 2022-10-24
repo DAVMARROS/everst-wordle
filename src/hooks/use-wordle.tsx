@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { Box } from 'components'
 
+import useKeyPressed from './use-key-pressed'
 import { saveWords, updateStatistics } from '../utils'
 
 const getVariant = (
@@ -24,6 +25,7 @@ export default function useWordle() {
   const [attempts, setAttempts] = useState<Array<string>>([])
   const [showInstructions, setShowInstructions] = useState(false)
   const [showStatistics, setShowStatistics] = useState(false)
+  const keyPressed = useKeyPressed()
 
   useEffect(() => {
     const readed = localStorage.getItem('readed')
@@ -57,6 +59,33 @@ export default function useWordle() {
     }
   }, [attempts])
 
+  useEffect(() => {
+    const re = new RegExp('^[ña-zA-Z]+$')
+    if (
+      (keyPressed.length == 1 && re.test(keyPressed)) ||
+      keyPressed === 'Backspace'
+    ) {
+      localStorage.getItem('finished') === 'false' &&
+        selectKey(keyPressed.toLowerCase())
+    }
+  }, [keyPressed])
+
+  const selectKey = (key: string) => {
+    let attempt
+    if (key == 'backspace') {
+      attempt = word.slice(0, -1)
+      setWord(attempt)
+    } else {
+      attempt = word + key
+      setWord(attempt)
+    }
+    if (attempt.length >= 5) {
+      setWord('')
+      localStorage.setItem('attempts', JSON.stringify([...attempts, attempt]))
+      setAttempts([...attempts, attempt])
+    }
+  }
+
   return {
     attempts,
     darkMode,
@@ -65,21 +94,7 @@ export default function useWordle() {
     setShowInstructions,
     showStatistics,
     setShowStatistics,
-    selectKey: (key: string) => {
-      let attempt
-      if (key == 'back') {
-        attempt = word.slice(0, -1)
-        setWord(attempt)
-      } else {
-        attempt = word + key
-        setWord(attempt)
-      }
-      if (attempt.length >= 5) {
-        setWord('')
-        localStorage.setItem('attempts', JSON.stringify([...attempts, attempt]))
-        setAttempts([...attempts, attempt])
-      }
-    },
+    selectKey,
     getWord: (index: number) => {
       return [0, 1, 2, 3, 4].map((item) => {
         if (attempts.length > index) {

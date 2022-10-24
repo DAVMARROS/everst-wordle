@@ -67,7 +67,7 @@ const Keyboard = ({ attempts, darkMode, onPress }: KeyboardProperties) => {
         <Box
           darkMode={darkMode}
           className="col-span-2 flex items-center justify-center h-full"
-          onClick={() => onPress('back')}
+          onClick={() => onPress('backspace')}
           keyboard
         >
           <img

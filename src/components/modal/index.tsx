@@ -14,7 +14,7 @@ const Modal = ({
   return showModal ? (
     <div>
       <div className={styles.background}></div>
-      <div className={styles.modal}>
+      <div className={styles.modal} {...rest}>
         <div className={styles.container}>
           <div
             className={classNames(
